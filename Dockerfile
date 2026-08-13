@@ -2,15 +2,11 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copier les package.json d'abord (pour optimiser le cache)
+# Copier et installer le backend seulement
 COPY backend/package.json backend/
-COPY frontend/package.json frontend/
-
-# Installer les dépendances
 RUN cd backend && npm install
-RUN cd frontend && npm install
 
-# Copier tout le code source
+# Copier tout le code
 COPY backend/ backend/
 COPY frontend/ frontend/
 
@@ -18,4 +14,4 @@ COPY frontend/ frontend/
 EXPOSE 3000
 
 # Démarrer l'application
-CMD ["sh", "-c", "cd backend && node server.js"]
+CMD ["node", "backend/server.js"]
