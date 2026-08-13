@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lessgo-community
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
