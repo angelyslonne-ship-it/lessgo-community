@@ -1,15 +1,35 @@
-FROM node:18-alpine
+FROM php:8.3-apache
 
-WORKDIR /app
+# Installer les extensions nécessaires
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql pdo_mysql \
+    && a2enmod rewrite
 
-# Copier tous les fichiers
-COPY . .
+# Copier tout le projet
+COPY . /var/www/html/
 
-# Installer les dépendances (si package.json existe à la racine)
-RUN if [ -f package.json ]; then npm install; fi
+# Donner les permissions
+RUN chmod -R 755 /var/www/html/backend \
+    && chmod -R 755 /var/www/html/frontend
 
-# Exposer le port
-EXPOSE 3000
+# Activer le mod_rewrite
+RUN a2enmod rewrite
 
-# Démarrer l'application
-CMD ["sh", "-c", "if [ -f server.js ]; then node server.js; elif [ -f index.js ]; then node index.js; else echo 'No server file found'; fi"]
+# Configurer Apache
+RUN echo '<VirtualHost *:80>\n\
+    DocumentRoot /var/www/html/frontend\n\
+    <Directory /var/www/html/frontend>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+    Alias /api /var/www/html/backend\n\
+    <Directory /var/www/html/backend>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]
