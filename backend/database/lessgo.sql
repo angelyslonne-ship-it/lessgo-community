@@ -103,8 +103,9 @@ INSERT INTO settings (setting_key, setting_value) VALUES
 ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value);
 
 INSERT INTO formations (title,slug,short_description,description,duration,level,skills,outcomes,image,featured,sort_order)
-SELECT * FROM (
-  SELECT 'Développement Web','developpement-web','Construisez des sites et applications modernes.','HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, Git et mise en ligne.','Selon programme','Débutant à intermédiaire','HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, Git','Développeur web junior, freelance, intégrateur','flyer.png',1,1
+SELECT tmp.title,tmp.slug,tmp.short_description,tmp.description,tmp.duration,tmp.level,tmp.skills,tmp.outcomes,tmp.image,tmp.featured,tmp.sort_order
+FROM (
+  SELECT 'Développement Web' AS title,'developpement-web' AS slug,'Construisez des sites et applications modernes.' AS short_description,'HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, Git et mise en ligne.' AS description,'Selon programme' AS duration,'Débutant à intermédiaire' AS level,'HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, Git' AS skills,'Développeur web junior, freelance, intégrateur' AS outcomes,'flyer.png' AS image,1 AS featured,1 AS sort_order
   UNION ALL SELECT 'DevOps','devops','Automatisez et industrialisez vos projets.','Linux, Git, Docker, CI/CD, conteneurs, bases Kubernetes et pratiques DevOps.','Selon programme','Intermédiaire','Linux, Git, Docker, CI/CD, Kubernetes','DevOps junior, cloud/automation assistant','flyer.png',1,2
   UNION ALL SELECT 'AWS Cloud','aws-cloud','Maîtrisez les fondamentaux du Cloud AWS.','Découverte des services AWS et des architectures Cloud modernes.','Selon programme','Débutant à intermédiaire','EC2, S3, IAM, RDS, Cloud fundamentals','Cloud junior, support Cloud','flyer.png',1,3
   UNION ALL SELECT 'Intelligence Artificielle','intelligence-artificielle','Découvrez l’IA et ses usages concrets.','Python, données, machine learning et découverte des outils d’IA.','Selon programme','Intermédiaire','Python, data, machine learning, IA générative','Assistant data/IA, créateur de solutions IA','flyer.png',1,4
@@ -115,8 +116,9 @@ SELECT * FROM (
 WHERE NOT EXISTS (SELECT 1 FROM formations LIMIT 1);
 
 INSERT INTO testimonials (name,role,message,rating)
-SELECT * FROM (
-  SELECT 'Étudiant LessGo','Apprenant','Une approche pratique et motivante pour progresser rapidement.',5
+SELECT t.name,t.role,t.message,t.rating
+FROM (
+  SELECT 'Étudiant LessGo' AS name,'Apprenant' AS role,'Une approche pratique et motivante pour progresser rapidement.' AS message,5 AS rating
   UNION ALL SELECT 'Participant','Ancien apprenant','J’ai apprécié les ateliers et l’accompagnement pendant la formation.',5
   UNION ALL SELECT 'Parent d’apprenant','Parent','Un cadre sérieux pour développer les compétences numériques.',5
 ) AS t
