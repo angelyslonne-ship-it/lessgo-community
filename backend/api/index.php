@@ -2,6 +2,12 @@
 // backend/api/index.php
 declare(strict_types=1);
 require_once __DIR__.'/../config/config.php';
+require_once __DIR__.'/../lib/PHPMailer/src/Exception.php';
+require_once __DIR__.'/../lib/PHPMailer/src/PHPMailer.php';
+require_once __DIR__.'/../lib/PHPMailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 $pdo = db();
 $resource = $_GET['resource'] ?? 'home';
@@ -52,6 +58,36 @@ try {
                 trim($data['address']??''),trim($data['level']??''),trim($data['formation']),
                 $data['start_date']??null,trim($data['message']??'')
             ]);
+            $mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'lessgooo.ai26@gmail.com';
+    $mail->Password   = getenv('SMTP_PASSWORD');
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    $mail->setFrom('lessgooo.ai26@gmail.com', 'LessGo Community');
+    $mail->addAddress('lessgooo.ai26@gmail.com');
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Nouvelle inscription LessGo Community';
+
+    $mail->Body = '
+        <h2>Nouvelle inscription</h2>
+        <p><strong>Nom :</strong> '.htmlspecialchars($data['first_name'].' '.$data['last_name']).'</p>
+        <p><strong>Téléphone :</strong> '.htmlspecialchars($data['phone']).'</p>
+        <p><strong>Email :</strong> '.htmlspecialchars($data['email'] ?? '').'</p>
+        <p><strong>Formation :</strong> '.htmlspecialchars($data['formation']).'</p>
+    ';
+
+    $mail->send();
+
+} catch (Exception $e) {
+    error_log('Erreur email inscription : '.$mail->ErrorInfo);
+}
             json_response(['success'=>true,'message'=>'Inscription enregistrée.']);
         case 'contact':
             if ($_SERVER['REQUEST_METHOD'] !== 'POST') json_response(['error'=>'Méthode non autorisée'],405);
