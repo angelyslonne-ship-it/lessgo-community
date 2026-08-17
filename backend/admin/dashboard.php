@@ -163,7 +163,10 @@ $msg=$_GET['msg']??'';
 <aside class="sidebar">
   <div class="admin-brand"><img src="../../frontend/assets/images/logo.png" alt="LessGo"><div><b>LESSGO</b><small>CONTROL CENTER</small></div></div>
   <a href="#overview">📊 Tableau de bord</a><a href="#settings">⚙️ Paramètres</a><a href="#formations">🎓 Formations</a><a href="#gallery">🖼️ Galerie</a><a href="#testimonials">💬 Témoignages</a><a href="#partners">🤝 Partenaires</a><a href="#inscriptions">📝 Inscriptions</a><a href="#messages">✉️ Messages</a>
-  <div class="side-bottom"><a class="site-link" href="../../frontend/index.html" target="_blank">🌐 Voir le site</a><a class="danger" href="logout.php">↪ Déconnexion</a></div>
+  <div class="side-bottom">
+  <a class="site-link" href="../../frontend/index.html">🌐 Voir le site</a>
+  <a class="danger" href="logout.php">↪ Déconnexion</a>
+</div>
 </aside>
 <main class="main">
 <header class="topbar"><div><span class="muted">Centre d’administration</span><h1>Bonjour, <?=htmlspecialchars($_SESSION['admin_name']??'Administrateur')?> 👋</h1></div><div class="top-actions"><span class="live">● EN LIGNE</span><a href="../../frontend/index.html" target="_blank">Ouvrir le site ↗</a></div></header>

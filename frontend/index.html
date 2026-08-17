@@ -1,10 +1,632 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="LessGo Community — formations pratiques en développement, DevOps, Cloud, IA et création numérique à Douala.">
-<title>Accueil | LessGo Community</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="assets/css/style.css"></head><body>
-<nav class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="LessGo Community"></a><button class="menu" aria-label="Menu">☰</button><div class="nav-links"><a href="index.html">Accueil</a><a href="about.html">À propos</a><a href="formations.html">Formations</a><a href="galerie.html">Galerie</a><a href="inscription.html" class="nav-cta">S’inscrire</a><a href="contact.html">Contact</a></div></div></nav><main><section class="hero"><div class="container hero-grid"><div><span class="eyebrow">LESSGO COMMUNITY · <b>FORMATION PROFESSIONNELLE</b></span><h1 id="hero-title">Transformez votre potentiel en <span>compétences</span> qui comptent.</h1><p id="hero-text">Formations pratiques en développement, DevOps, Cloud, IA et création numérique.</p><div class="actions"><a class="btn btn-primary" href="formations.html">Explorer les formations →</a><a class="btn btn-ghost" href="inscription.html">Commencer mon inscription</a></div><div class="floating"><div class="mini"><strong>+7</strong><span>domaines de formation</span></div><div class="mini"><strong>100%</strong><span>orienté pratique</span></div></div></div><div class="hero-card"><img src="assets/images/flyer.png" alt="Flyer LessGo Community"></div></div></section>
-<section class="section"><div class="container"><div class="section-head"><div><div class="kicker">Notre univers</div><h2>Apprendre. Construire. Évoluer.</h2></div><p>Un environnement pensé pour passer de la découverte à la réalisation de projets concrets.</p></div><div class="feature-grid"><div class="feature"><i>⌘</i><h3>Apprentissage pratique</h3><p>Ateliers, projets et exercices pour transformer les notions en compétences.</p></div><div class="feature"><i>↗</i><h3>Compétences recherchées</h3><p>Développement, Cloud, DevOps, IA et création numérique : des parcours tournés vers l’avenir.</p></div><div class="feature"><i>◈</i><h3>Accompagnement</h3><p>Un parcours progressif adapté aux débutants comme aux profils qui veulent se perfectionner.</p></div><div class="feature"><i>∞</i><h3>Communauté</h3><p>Une dynamique de partage pour apprendre, créer et progresser ensemble.</p></div></div></div></section>
-<section class="section alt"><div class="container"><div class="section-head"><div><div class="kicker">Programmes</div><h2>Nos formations</h2></div><a class="btn btn-primary" href="formations.html">Toutes les formations →</a></div><div id="formation-list" class="cards"></div></div></section>
-<section class="section stats-band"><div class="container"><div class="stats"><div class="statbox"><strong class="counter" data-target="7">0</strong><span>domaines de formation</span></div><div class="statbox"><strong class="counter" data-target="100">0</strong><span>% pratique</span></div><div class="statbox"><strong class="counter" data-target="1">0</strong><span>communauté</span></div><div class="statbox"><strong class="counter" data-target="2026">0</strong><span>année d’accélération</span></div></div></div></section>
-<section class="section"><div class="container"><div class="section-head"><div><div class="kicker">Vie du centre</div><h2>En images</h2></div><a class="btn btn-ghost" style="background:#0a1026" href="galerie.html">Voir la galerie →</a></div><div id="home-gallery" class="gallery"></div></div></section>
-<section class="section alt"><div class="container"><div class="section-head"><div><div class="kicker">Ils en parlent</div><h2>Une communauté qui avance</h2></div></div><div id="testimonial-list" class="cards"></div></div></section>
-<section class="section"><div class="container"><div class="cta"><div><h2>Prêt à développer votre potentiel ?</h2><p>Choisissez votre parcours et passez à l’action.</p></div><a class="btn btn-orange" href="inscription.html">S’inscrire maintenant →</a></div></div></section></main><footer class="footer"><div class="container"><div class="footer-grid"><div><img src="assets/images/logo.png" alt="LessGo" style="width:210px"><p>Développez • Créez • Impactez. Des compétences pratiques pour la nouvelle génération numérique.</p></div><div><h4>Navigation</h4><p><a href="index.html">Accueil</a></p><p><a href="about.html">À propos</a></p><p><a href="formations.html">Formations</a></p></div><div><h4>Formations</h4><p><a href="formation.html?slug=devops">DevOps</a></p><p><a href="formation.html?slug=aws-cloud">AWS Cloud</a></p><p><a href="formation.html?slug=intelligence-artificielle">IA</a></p></div><div><h4>Contact</h4><p id="address">Douala – Bonabéri</p><p id="phone">+237 656 84 48 82</p><p><a href="contact.html">Nous écrire →</a></p><p><a class="btn btn-ghost" href="../backend/admin/login.php">🔐 Espace administration</a></p></div></div><div class="footer-bottom"><span>© <span id="year"></span> LessGo Community</span><span>Site nouvelle génération</span></div></div></footer><a class="whatsapp" href="https://wa.me/237656844882?text=Bonjour%20LessGo%20Community%2C%20je%20souhaite%20avoir%20des%20informations." target="_blank" aria-label="WhatsApp">◉</a><div class="modal"><img src="" alt=""></div><script src="assets/js/app.js"></script></body></html>
+```html
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+        content="LessGo Community — formations pratiques en développement, DevOps, Cloud, IA et création numérique à Douala.">
+
+    <title>Accueil | LessGo Community</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+    <nav class="nav">
+
+        <div class="container nav-inner">
+
+            <a class="brand" href="index.html">
+                <img src="assets/images/logo.png" alt="LessGo Community">
+            </a>
+
+            <button class="menu" aria-label="Ouvrir le menu">
+                ☰
+            </button>
+
+            <div class="nav-links">
+
+                <a href="index.html" class="active">
+                    Accueil
+                </a>
+
+                <a href="about.html">
+                    À propos
+                </a>
+
+                <a href="formations.html">
+                    Formations
+                </a>
+
+                <a href="galerie.html">
+                    Galerie
+                </a>
+
+                <a href="inscription.html" class="nav-cta">
+                    S'inscrire
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CONTENU PRINCIPAL
+    ========================== -->
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="container hero-grid">
+
+                <div>
+
+                    <span class="eyebrow">
+                        LESSGO COMMUNITY ·
+                        <b>FORMATION PROFESSIONNELLE</b>
+                    </span>
+
+                    <h1 id="hero-title">
+                        Transformez votre potentiel en
+                        <span>compétences</span> qui comptent.
+                    </h1>
+
+                    <p id="hero-text">
+                        Formations pratiques en développement,
+                        DevOps, Cloud, IA et création numérique.
+                    </p>
+
+                    <div class="actions">
+
+                        <a class="btn btn-primary" href="formations.html">
+                            Explorer les formations →
+                        </a>
+
+                        <a class="btn btn-ghost" href="inscription.html">
+                            Commencer mon inscription
+                        </a>
+
+                    </div>
+
+
+                    <div class="floating">
+
+                        <div class="mini">
+                            <strong>+7</strong>
+                            <span>domaines de formation</span>
+                        </div>
+
+                        <div class="mini">
+                            <strong>100%</strong>
+                            <span>orienté pratique</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <img src="assets/images/flyer.png"
+                        alt="Flyer LessGo Community">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOTRE UNIVERS
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+
+                        <div class="kicker">
+                            Notre univers
+                        </div>
+
+                        <h2>
+                            Apprendre. Construire. Évoluer.
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Un environnement pensé pour passer
+                        de la découverte à la réalisation
+                        de projets concrets.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature">
+
+                        <i>⌘</i>
+
+                        <h3>
+                            Apprentissage pratique
+                        </h3>
+
+                        <p>
+                            Ateliers, projets et exercices pour
+                            transformer les notions en compétences.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i>↗</i>
+
+                        <h3>
+                            Compétences recherchées
+                        </h3>
+
+                        <p>
+                            Développement, Cloud, DevOps, IA
+                            et création numérique : des parcours
+                            tournés vers l'avenir.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i>◈</i>
+
+                        <h3>
+                            Accompagnement
+                        </h3>
+
+                        <p>
+                            Un parcours progressif adapté aux
+                            débutants comme aux profils qui
+                            veulent se perfectionner.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i>∞</i>
+
+                        <h3>
+                            Communauté
+                        </h3>
+
+                        <p>
+                            Une dynamique de partage pour
+                            apprendre, créer et progresser ensemble.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FORMATIONS
+        ========================== -->
+
+        <section class="section alt">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+
+                        <div class="kicker">
+                            Programmes
+                        </div>
+
+                        <h2>
+                            Nos formations
+                        </h2>
+
+                    </div>
+
+                    <a class="btn btn-primary"
+                        href="formations.html">
+                        Toutes les formations →
+                    </a>
+
+                </div>
+
+
+                <div id="formation-list" class="cards">
+                    <!-- Les formations sont chargées par app.js -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTIQUES
+        ========================== -->
+
+        <section class="section stats-band">
+
+            <div class="container">
+
+                <div class="stats">
+
+                    <div class="statbox">
+
+                        <strong class="counter"
+                            data-target="7">
+                            0
+                        </strong>
+
+                        <span>
+                            domaines de formation
+                        </span>
+
+                    </div>
+
+
+                    <div class="statbox">
+
+                        <strong class="counter"
+                            data-target="100">
+                            0
+                        </strong>
+
+                        <span>
+                            % pratique
+                        </span>
+
+                    </div>
+
+
+                    <div class="statbox">
+
+                        <strong class="counter"
+                            data-target="1">
+                            0
+                        </strong>
+
+                        <span>
+                            communauté
+                        </span>
+
+                    </div>
+
+
+                    <div class="statbox">
+
+                        <strong class="counter"
+                            data-target="2026">
+                            0
+                        </strong>
+
+                        <span>
+                            année d'accélération
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GALERIE
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+
+                        <div class="kicker">
+                            Vie du centre
+                        </div>
+
+                        <h2>
+                            En images
+                        </h2>
+
+                    </div>
+
+                    <a class="btn btn-ghost"
+                        style="background:#0a1026"
+                        href="galerie.html">
+                        Voir la galerie →
+                    </a>
+
+                </div>
+
+
+                <div id="home-gallery" class="gallery">
+                    <!-- Galerie chargée par app.js -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TEMOIGNAGES
+        ========================== -->
+
+        <section class="section alt">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+
+                        <div class="kicker">
+                            Ils en parlent
+                        </div>
+
+                        <h2>
+                            Une communauté qui avance
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div id="testimonial-list" class="cards">
+                    <!-- Témoignages chargés par app.js -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CALL TO ACTION
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="cta">
+
+                    <div>
+
+                        <h2>
+                            Prêt à développer votre potentiel ?
+                        </h2>
+
+                        <p>
+                            Choisissez votre parcours et passez à l'action.
+                        </p>
+
+                    </div>
+
+                    <a class="btn btn-orange"
+                        href="inscription.html">
+                        S'inscrire maintenant →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <img src="assets/images/logo.png"
+                        alt="LessGo"
+                        style="width:210px">
+
+                    <p>
+                        Développez • Créez • Impactez.
+                        Des compétences pratiques pour
+                        la nouvelle génération numérique.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Navigation
+                    </h4>
+
+                    <p>
+                        <a href="index.html">
+                            Accueil
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="about.html">
+                            À propos
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="formations.html">
+                            Formations
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Formations
+                    </h4>
+
+                    <p>
+                        <a href="formation.html?slug=devops">
+                            DevOps
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="formation.html?slug=aws-cloud">
+                            AWS Cloud
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="formation.html?slug=intelligence-artificielle">
+                            IA
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Contact
+                    </h4>
+
+                    <p id="address">
+                        Douala – Bonabéri
+                    </p>
+
+                    <p id="phone">
+                        +237 656 84 48 82
+                    </p>
+
+                    <p>
+                        <a href="contact.html">
+                            Nous écrire →
+                        </a>
+                    </p>
+
+                    <p>
+
+                        <a class="btn btn-ghost"
+                            href="../backend/admin/login.php">
+                            🔐 Espace administration
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    ©
+                    <span id="year"></span>
+                    LessGo Community
+                </span>
+
+                <span>
+                    Site nouvelle génération
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP
+    ========================== -->
+
+    <a class="whatsapp"
+        href="https://wa.me/237656844882?text=Bonjour%20LessGo%20Community%2C%20je%20souhaite%20avoir%20des%20informations."
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp">
+
+        ◉
+
+    </a>
+
+
+    <!-- =========================
+         MODAL IMAGE
+    ========================== -->
+
+    <div class="modal">
+
+        <img src=""
+            alt="Image agrandie">
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
+```

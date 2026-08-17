@@ -17,10 +17,9 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 }
 ?>
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Connexion — LessGo Admin</title><link rel="stylesheet" href="assets/admin.css"></head>
+<title>Connexion — LessGo Admin</title><link rel="stylesheet" href="assets/css/login.css"></head>
 <body class="login-page">
 <div class="login-card"><img src="../../frontend/assets/images/logo.png" alt="LessGo Community"><h1>Administration</h1><p>Connectez-vous pour gérer le site.</p>
 <?php if($error): ?><div class="alert"><?= htmlspecialchars($error) ?></div><?php endif; ?>
 <form method="post"><label>Email<input type="email" name="email" required value="admin@lessgo.cm"></label>
 <label>Mot de passe<input type="password" name="password" required></label><button>Se connecter</button></form>
-<small>Compte initial : admin@lessgo.cm / LessGo2026!</small></div></body></html>
